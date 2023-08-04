@@ -7,7 +7,7 @@ module.exports = {
         try {
             const user = await mysql.execute('SELECT * FROM users WHERE email = ?;', [req.body.email]);
             if( user.length === 0 ) {
-                const result = await  mysql.execute('INSERT INTO users (name, email, password) VALUES (?,?,?);', ["empty", req.body.email, "random"]);
+                const result = await  mysql.execute('INSERT INTO users (email) VALUES (?);', [req.body.email]);
                 function userData () {
                     const {email} = req.body;
                     return { email };
