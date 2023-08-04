@@ -23,7 +23,6 @@ app.use((req, res, next) => {
 
     next();
 })
-
 app.use('/users', users);
 
 app.use((req, res, next) => {
